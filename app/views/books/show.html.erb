@@ -42,16 +42,6 @@
            <%= render 'book_comments/book_comment', book: @book %>
           </div>
          
-            </br>
-            <% if @book_comment.errors.any? %>
-                <%= @book_comment.errors.count %>件のエラーが発生しました
-                <ul>
-                  <% @book_comment.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
-            <% end %>
-       
        <div class="new_comment">
        <%= render "book_comments/form",book: @book,book_comment: @book_comment %>
        </div>

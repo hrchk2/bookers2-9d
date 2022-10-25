@@ -1,2 +1,4 @@
 $("#comments_area").html("<%=j(render 'book_comments/book_comment',book: @book) %>");
 $("textarea").val('');
+
+$('#flash-message').html("<%= j(render 'layouts/flash') %>");

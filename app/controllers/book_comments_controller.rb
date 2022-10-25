@@ -4,11 +4,10 @@ class BookCommentsController < ApplicationController
     @book_comment =current_user.book_comments.new(book_comment_params)
     @book_comment.book_id= @book.id
     if @book_comment.save
+      flash.now[:notice] = 'コメントを投稿しました'
       render :create
     else 
-      @booknew =Book.new
-      @user =@book.user
-      render "books/show"
+      render :error
     end
   end
 
