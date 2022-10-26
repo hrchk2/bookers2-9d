@@ -42,6 +42,10 @@
            <%= render 'book_comments/book_comment', book: @book %>
           </div>
          
+          <div id="comments-error"></div>
+          <%=render 'layouts/errors',obj: @book_comment %>
+         
+         
        <div class="new_comment">
        <%= render "book_comments/form",book: @book,book_comment: @book_comment %>
        </div>
