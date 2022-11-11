@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :edit_user, only: [:edit]
-  
+
   def show
     @booknew =Book.new
     @book = Book.find(params[:id])
@@ -47,10 +47,10 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title,:body)
+    params.require(:book).permit(:title,:body,:rate)
   end
 
-  
+
   def edit_user
     book = Book.find(params[:id])
     unless book.user == current_user
