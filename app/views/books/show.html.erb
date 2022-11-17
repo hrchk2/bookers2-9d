@@ -34,6 +34,10 @@
             <td>
               コメント数：<%= @book.book_comments.count %>
             </td>
+            
+            
+            <td><%= link_to @book.category,search_book_path(keyword: book_category) %></td>
+            
         </tr>
         
       </table>

@@ -9,7 +9,13 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    if params[:latest]
+      @books = Book.latest
+    elsif params[:star_count]
+      @books = Book.star_count
+    else
+      @books = Book.all
+    end
     @book =Book.new
   end
 
@@ -43,11 +49,16 @@ class BooksController < ApplicationController
     book.destroy
     redirect_to books_path
   end
+  
+  def search_book
+     @book=Book.new
+     @books = Book.search(params[:keyword])
+  end
 
   private
 
   def book_params
-    params.require(:book).permit(:title,:body,:rate)
+    params.require(:book).permit(:title,:body,:category,:rate)
   end
 
 
